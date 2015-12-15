@@ -1,0 +1,51 @@
+#N canvas 849 221 430 345 10;
+#X obj 1 14 cnv 15 150 50 empty empty Loop 5 7 0 14 -5824 -262144 0
+;
+#X obj 108 14 bng 15 250 50 0 \$0-rec-snd \$0-rec-rcv rec 17 7 0 10
+-195568 -195568 -195568;
+#X symbolatom 34 30 16 0 0 0 name #0-name-rcv #0-name-snd;
+#X obj 184 33 apsym \$0 name \$0-name;
+#X obj 324 33 r \$0-name-snd;
+#X obj 32 48 tgl 15 0 \$0-loop-snd \$0-loop-rcv loop -25 7 0 10 -262144
+-1 -1 1 1;
+#X obj 184 53 apf \$0 loop \$0-loop;
+#X obj 184 0 tlTrackRef \$0 \$1 \$2 \$3 \$4;
+#X obj 324 54 s \$0-eventname;
+#X obj 13 288 f;
+#X obj 164 192 * -1;
+#X obj 164 260 +;
+#X obj 13 215 spigot;
+#X obj 13 149 change;
+#X obj 179 236 route i;
+#X obj 13 261 spigot;
+#X obj 46 237 r \$0-loop-snd;
+#X obj 137 150 r \$0-tlev;
+#X obj 13 172 sel 1;
+#X obj 13 120 r \$0-outside;
+#X obj 46 194 r \$1-\$3-play-snd;
+#X obj 13 310 s \$1-\$3-Goto;
+#X obj 179 214 r \$1-song-\$3-snd;
+#X text 188 259 compute event start time;
+#X text 1 -18 tlLoop SongRef Name SongName TrackNum;
+#X text 10 73 At the end of an event on the requested track \, if "loop"
+is on for this event \, send the index of the song back to the beginning
+of the event.;
+#X text 74 135 event : eventNum relativeTime normalizedTime eventLength
+;
+#X obj 137 169 unpack f f f f;
+#X connect 4 0 8 0;
+#X connect 9 0 21 0;
+#X connect 10 0 11 0;
+#X connect 11 0 9 1;
+#X connect 12 0 15 0;
+#X connect 13 0 18 0;
+#X connect 14 0 11 1;
+#X connect 15 0 9 0;
+#X connect 16 0 15 1;
+#X connect 17 0 27 0;
+#X connect 18 0 12 0;
+#X connect 19 0 13 0;
+#X connect 20 0 12 1;
+#X connect 22 0 14 0;
+#X connect 27 1 10 0;
+#X coords 0 0 1 1 152 65 1 0 0;

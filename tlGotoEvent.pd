@@ -1,0 +1,31 @@
+#N canvas 1032 669 462 312 10;
+#X obj 120 108 loadbang;
+#X obj 177 112 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 44 111 symbol;
+#X obj 238 216 unpack f f f;
+#X floatatom 238 241 5 0 0 0 - - -;
+#X obj 44 132 sel home;
+#X obj 44 86 inlet;
+#X obj 89 209 s \$1-song-\$2-rcv;
+#X obj 89 154 pack s s \$3;
+#X msg 89 183 \$3 request \$1 \$2;
+#X obj 272 240 s \$1-\$2-Goto;
+#X obj 44 239 s \$1-\$2-home-rcv;
+#X obj 120 131 symbol \$0-request_ev-rcv;
+#X obj 238 190 r \$0-request_ev-rcv;
+#X text 42 16 tlGotoEvent SongRef SongName TrackNum;
+#X text 58 39 Set the index to the beginning of the first event having
+the requested name on the specified track of the song.;
+#X connect 0 0 12 0;
+#X connect 1 0 12 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 3 1 10 0;
+#X connect 5 0 11 0;
+#X connect 5 1 8 0;
+#X connect 6 0 2 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 12 0 8 1;
+#X connect 13 0 3 0;

@@ -1,0 +1,8 @@
+#N canvas 363 67 756 261 10;
+#X obj 21 108 tlBars \$0;
+#X obj 20 42 tlTrack \$0 1;
+#X obj 20 21 tlTime \$0;
+#X obj 22 191 tlsongcommon \$0 \$1 \$2;
+#X obj 20 64 tlTrack \$0 2;
+#X obj 20 86 tlTrack \$0 3;
+#X coords 0 -1 1 1 701 139 1 20 5;
