@@ -1,4 +1,4 @@
-#N canvas 223 243 833 377 10;
+#N canvas 169 455 833 377 10;
 #X obj 583 35 v \$1-z;
 #X obj 540 36 init 1;
 #X obj 511 40 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -50,9 +50,8 @@
 #X obj 497 260 nroute unsel 2;
 #X obj 497 302 s \$1-tr-rcv;
 #X msg 497 280 unsel;
-#X obj 590 253 nroute move 2;
-#X msg 636 297 move \$1;
-#X obj 590 275 unwonk f s f;
+#X msg 664 313 move \$1;
+#X obj 618 291 unwonk f s f;
 #N canvas 94 310 345 553 z/s 0;
 #X obj 58 525 s \$1-updategui;
 #X floatatom 37 58 5 0 0 0 - - -, f 5;
@@ -123,7 +122,6 @@
 10 -262144 -1 -1 0 1;
 #X obj 70 89 s \$1-tr-rcv;
 #X obj 17 248 apsubmaster \$1 \$2 \$3;
-#X obj 594 171 nroute move 2;
 #X obj 30 132 s \$1-i-snd;
 #X msg 13 183 set \$1;
 #X obj 13 206 s \$1-i-rcv;
@@ -163,7 +161,7 @@
 #X restore 375 156 pd doubleclic;
 #X obj 393 178 s \$1-reset-rcv;
 #X floatatom 104 161 5 0 0 0 - - -, f 5;
-#N canvas 71 571 450 300 Mouse 0;
+#N canvas 72 569 450 300 Mouse 0;
 #X obj 174 47 cursor;
 #X obj 174 25 init 1;
 #X obj 174 3 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -197,6 +195,11 @@
 #X restore 18 272 pd Mouse;
 #X obj 358 299 apf \$1 z \$1-z 2;
 #X obj 358 320 apf \$1 s \$1-s 2;
+#X obj 594 171 nroute move 2;
+#X obj 594 259 nroute move 2;
+#X obj 597 337 print;
+#X obj 550 336 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X connect 2 0 6 0;
@@ -211,15 +214,15 @@
 #X connect 17 0 19 1;
 #X connect 18 0 19 0;
 #X connect 18 1 17 0;
-#X connect 19 0 58 0;
-#X connect 19 0 61 0;
+#X connect 19 0 56 0;
+#X connect 19 0 59 0;
 #X connect 20 0 22 1;
 #X connect 21 0 22 0;
 #X connect 21 1 20 0;
-#X connect 22 0 64 0;
+#X connect 22 0 62 0;
 #X connect 23 0 25 0;
 #X connect 24 0 23 1;
-#X connect 27 0 65 0;
+#X connect 27 0 63 0;
 #X connect 28 0 30 0;
 #X connect 29 0 21 0;
 #X connect 29 1 28 0;
@@ -231,26 +234,25 @@
 #X connect 33 0 37 0;
 #X connect 34 0 35 0;
 #X connect 37 0 36 0;
-#X connect 38 0 67 0;
+#X connect 38 0 65 0;
 #X connect 40 0 39 0;
 #X connect 42 0 43 0;
 #X connect 43 0 41 0;
-#X connect 44 0 57 0;
+#X connect 44 0 71 0;
 #X connect 45 0 46 0;
-#X connect 45 0 49 0;
+#X connect 45 0 72 0;
 #X connect 46 0 48 0;
 #X connect 48 0 47 0;
-#X connect 49 0 51 0;
-#X connect 50 0 47 0;
-#X connect 51 2 50 0;
-#X connect 57 1 26 0;
-#X connect 59 0 60 0;
-#X connect 61 0 59 0;
-#X connect 63 0 62 0;
-#X connect 64 0 34 0;
-#X connect 64 1 63 0;
-#X connect 65 0 18 0;
+#X connect 50 2 49 0;
+#X connect 57 0 58 0;
+#X connect 59 0 57 0;
+#X connect 61 0 60 0;
+#X connect 62 0 34 0;
+#X connect 62 1 61 0;
+#X connect 63 0 18 0;
+#X connect 63 1 64 0;
+#X connect 63 2 54 0;
+#X connect 65 0 40 0;
 #X connect 65 1 66 0;
-#X connect 65 2 55 0;
-#X connect 67 0 40 0;
-#X connect 67 1 68 0;
+#X connect 71 1 26 0;
+#X connect 72 0 47 0;
