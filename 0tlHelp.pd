@@ -1,30 +1,15 @@
-#N canvas 378 176 758 706 10;
-#X declare -path ../AutoPreset;
-#X declare -stdpath moonlib;
-#X declare -lib moonlib;
-#X declare -stdpath zexy;
-#X declare -lib zexy;
-#X declare -stdpath hcs;
-#X declare -lib hcs;
-#X declare -stdpath ggee;
-#X declare -lib ggee;
-#X declare -stdpath extra/moonlib;
-#X declare -stdpath extra/zexy;
-#X declare -stdpath extra/hcs;
-#X declare -stdpath extra/ggee;
-#X declare -stdpath iemlib;
-#X declare -lib iemlib;
-#X declare -stdpath extra/iemlib;
+#N canvas 378 79 758 689 10;
+#X declare -path ../AutoPreset -path AutoPreset;
+#X declare -path zexy -lib zexy;
 #X obj 12 5 cnv 15 730 70 empty empty empty 20 12 0 14 -228856 -66577
 0;
-#X obj 19 9 declare -path ../AutoPreset;
 #X obj 17 31 bng 15 250 50 0 empty empty load 17 7 0 10 -4034 -1 -1
 ;
 #X obj 230 31 bng 15 250 50 0 empty empty save 17 7 0 10 -258113 -1
 -1;
 #X obj 67 31 loadbang;
 #X obj 285 32 apmaster \$0-Master;
-#X text 525 20 AutoPreset master stuff \; master reference is "\$0-Master".
+#X text 400 29 AutoPreset master stuff \; master reference is "\$0-Master".
 ;
 #X obj 11 87 cnv 15 730 200 empty empty empty 20 12 0 14 -228856 -66577
 0;
@@ -33,7 +18,7 @@
 \, and named "Song".;
 #X text 120 30 (autoload);
 #X text 242 54 <- all is saved into file "tlHelp.preset".;
-#N canvas 1363 353 413 467 EDIT-MANUAL 0;
+#N canvas 953 301 413 467 EDIT-MANUAL 0;
 #X text 32 52 -scroll : translate the view of the song \; double-click
 to jump to an arbitrary time.;
 #X text 32 326 -click on an event to select it \; shift-click to add
@@ -73,10 +58,10 @@ of the screen.;
 #X obj 72 452 bng 15 250 50 0 \$0-MySubMaster-rec-snd \$0-MySubMaster-rec-rcv
 MySubMaster-rec -40 -7 0 10 -195568 -195568 -195568;
 #X obj 20 502 hsl 150 15 0 127 0 0 empty empty MyFloat -2 -8 0 10 -262144
--1 -1 11900 1;
+-1 -1 14900 1;
 #X obj 17 522 apf \$0-MySubMaster MyFloat;
 #X obj 19 587 hsl 150 15 0 127 0 0 empty empty MyFloat2 -2 -8 0 10
--262144 -1 -1 3440 1;
+-262144 -1 -1 7744 1;
 #X obj 16 606 apf \$0-MySubMastervar MyFloat2;
 #X text 307 385 Create a new subreference "\$0-MySubMaster" named "mysub"
 under "\$0-Master" \; link this subref to Song / Track1.;
@@ -86,15 +71,14 @@ for each recorded event. Stop the transport \, select an event on the
 track 1 \, change MyFloat \, press "MySubMaster-rec". That's done !
 ;
 #X obj 576 621 r \$0-MySubMaster-outside;
-#X obj 576 643 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 576 643 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 575 461 unpack f f f f;
-#X floatatom 575 576 5 0 0 3 eventNum - -, f 5;
-#X floatatom 602 544 5 0 0 3 eventTime - -, f 5;
-#X floatatom 629 515 5 0 0 3 normalizedTime - -, f 5;
-#X floatatom 656 482 5 0 0 3 eventLength - -, f 5;
+#X floatatom 575 576 5 0 0 3 eventNum - -;
+#X floatatom 602 544 5 0 0 3 eventTime - -;
+#X floatatom 629 515 5 0 0 3 normalizedTime - -;
+#X floatatom 656 482 5 0 0 3 eventLength - -;
 #X obj 575 414 r \$0-MySubMaster-tlev;
-#X obj 575 437 speedlim 50;
 #X text 14 382 Using :;
 #X text 205 577 Additionnaly \, another subreference named "[subref]var"
 is created. Float belonging to this subref will interpolate their value
@@ -108,22 +92,25 @@ when an event on this track is selected. Open its properties to see
 that it has been assigned to "\$0-MySubMaster-rec-snd" and "\$0-MySubMaster-rec-rcv"
 channels.;
 #X text 537 680 Moonix::Antoine Rousseau 2012-2014;
-#X text 189 9 <- adjust AutoPreset path;
-#X obj 371 9 apdeclare;
-#X connect 2 0 8 0;
-#X connect 3 0 8 1;
-#X connect 4 0 2 0;
-#X connect 16 0 19 0;
-#X connect 17 0 19 0;
-#X connect 18 0 19 0;
-#X connect 24 0 25 0;
-#X connect 25 0 24 0;
-#X connect 26 0 27 0;
-#X connect 27 0 26 0;
-#X connect 30 0 31 0;
-#X connect 32 0 33 0;
-#X connect 32 1 34 0;
-#X connect 32 2 35 0;
-#X connect 32 3 36 0;
-#X connect 37 0 38 0;
-#X connect 38 0 32 0;
+#X text 293 9 <- adjust AutoPreset path;
+#X obj 575 437 maxlib/speedlim 50;
+#X obj 19 9 declare -path ../AutoPreset -path AutoPreset;
+#X text 612 35 make sure 'zexy' is loaded first, f 20;
+#X obj 614 8 declare -path zexy -lib zexy, f 18;
+#X connect 1 0 7 0;
+#X connect 2 0 7 1;
+#X connect 3 0 1 0;
+#X connect 15 0 18 0;
+#X connect 16 0 18 0;
+#X connect 17 0 18 0;
+#X connect 23 0 24 0;
+#X connect 24 0 23 0;
+#X connect 25 0 26 0;
+#X connect 26 0 25 0;
+#X connect 29 0 30 0;
+#X connect 31 0 32 0;
+#X connect 31 1 33 0;
+#X connect 31 2 34 0;
+#X connect 31 3 35 0;
+#X connect 36 0 43 0;
+#X connect 43 0 31 0;
